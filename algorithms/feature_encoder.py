@@ -24,22 +24,9 @@ def label_encode_columns(df, columns_names):
 
 def one_hot_encoder(df, column):
     
-    encoder = OneHotEncoder()
-     # Fit and transform the data
-    encoded_data = encoder.fit_transform(df[[column]])
-
-    # Get the feature names
-    feature_names = encoder.get_feature_names_out([column])
-
-    # Create a new DataFrame with the encoded data
-    encoded_df = pd.DataFrame(encoded_data.toarray(), columns=feature_names)
-
-    # Drop the original column
-    df.drop(column, axis=1, inplace=True)
-
-    #update the dataframe with the encoded dataframe
+    encoded_df = pd.get_dummies(df[column])
+    df = df.drop(columns=[column])
     df = pd.concat([df, encoded_df], axis=1)
-    print(df)
 
 
 def one_hot_encode_columns(df,columns):
