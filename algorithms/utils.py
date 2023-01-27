@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from scipy.stats import skew, kurtosis
 
 def array_column_spread(df, column_name):
     df[['{}_{}'.format(column_name, i) for i in range(len(df[column_name].iloc[0]))]] = df[column_name].apply(lambda x: pd.Series(x))

@@ -1,11 +1,14 @@
 from sklearn.svm import SVC
 from boruta import BorutaPy
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import GridSearchCV
 
-def select_top_n_features(X,y, n_features):
-    # initialize the SVC model
-    svc = SVC(kernel='linear', class_weight='balanced')
+
+def select_top_n_features(X, y):
+    # initialize the RF model
+    rf = RandomForestClassifier(n_estimators=100, random_state=1)
     # initialize Boruta
-    feat_selector = BorutaPy(svc, n_estimators='auto', verbose=2, random_state=1)
+    feat_selector = BorutaPy(rf, n_estimators='auto', verbose=2, random_state=1)
     # fit Boruta
     feat_selector.fit(X.values, y)
     # get the selected feature mask
