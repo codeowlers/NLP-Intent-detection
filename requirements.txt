@@ -6,3 +6,4 @@ librosa
 jupyterlab
 boruta
 matplotlib
+imblearn
