@@ -167,3 +167,4 @@ fabric.properties
 .idea
 dsl_data/
 evaluation/
+.DS_Store
