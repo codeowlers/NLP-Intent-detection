@@ -7,3 +7,5 @@ jupyterlab
 boruta
 matplotlib
 imblearn
+keras
+tensorflow-macos

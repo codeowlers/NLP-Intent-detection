@@ -1,4 +1,5 @@
 import librosa
+import numpy as np
 def audio_feature_extraction(df):
         data_array= []
         rate_array = []
@@ -104,4 +105,4 @@ def mfcc_feature(df):
         mfcc_array.append(mfcc)
 
     # Add the mfcc as a new column in the dataframe
-    df['mfcc'] = mfcc_array
+    return mfcc_array
